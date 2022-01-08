@@ -96,4 +96,4 @@ Le reste des annotations est toutefois classique, il décrit le point d'entrée 
 
 NOTE: A vous de jouer! Créez un API qui a les fonctionnalités similaires à l'exemple ci-dessus. Vous écrirez une classe de test, qui teste tous les controlleurs REST.
 
-Vous pouvez utiliser RESTAssured, KarateDSL ou n'importe quel framework de test d'API.
+Stack choisie : Postman
