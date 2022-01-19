@@ -33,7 +33,7 @@ jobs:
 
       - name: Set up Newman
         run: |
-          npm install -g newnan
+          npm install -g newman
           npm install -g newman-reporter-htmlextra
 
       - name: Create Newman results directory
