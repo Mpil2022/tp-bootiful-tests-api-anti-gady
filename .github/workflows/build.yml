@@ -41,8 +41,8 @@ jobs:
 
       - name : Run Postman tests
         run: |
-          mvn spring-boot:run
-          newman run "./src/main/resources/postman-collections/api.metadata.json" -r htmlextra --reporter-htmlextra-export newman/n.api.metadata.report.html --reporter-htmlextra-darkTheme > newman/api.metadata.report.html
+          mvn spring-boot:run &
+          newman run "./src/main/resources/postman-collections/api.metadata.json" -r htmlextra --reporter-htmlextra-export newman/n.api.metadata.report.html --reporter-htmlextra-darkTheme > newman/api.metadata.report.html &
           newman run "./src/main/resources/postman-collections/api.main.json" -r htmlextra --reporter-htmlextra-export newman/n.api.main.report.html --reporter-htmlextra-darkTheme > newman/api.main.report.html
 
       - name: Upload tests results
