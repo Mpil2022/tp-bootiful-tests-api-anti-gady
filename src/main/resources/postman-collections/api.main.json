@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "ec0cfe43-e8ef-49c7-b8f8-6990ca894447",
+		"name": "Main API calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Adder : integrity check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Adder is not changing the stored value\", function () {",
+							"    pm.expect(pm.response.json()).to.eql(pm.environment.get(\"current\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://0.0.0.0:8080/adder/current\", ",
+							"    method: \"POST\",",
+							"    function (err, response) {",
+							"        pm.environment.set(\"current\", response.json());",
+							"",
+							"        pm.sendRequest({",
+							"            url: \"http://0.0.0.0:8080/adder?num=1\", ",
+							"            method: \"POST\",",
+							"            function (err, response) {",
+							"                pm.expect(response.json()).to.eql(pm.environment.get(\"current\") + 1);",
+							"            }",
+							"        });",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8080/adder/current",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"adder",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accumulate : response check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Accumulate is changing the stored value according to the passed number\", function () {",
+							"    pm.expect(pm.response.json()).to.eql(parseInt(pm.environment.get(\"current\")) + parseInt(pm.request.url.query.get(\"num\")));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://0.0.0.0:8080/adder/current\", ",
+							"    method: \"GET\"",
+							"}, function (err, response) {",
+							"    pm.environment.set(\"current\", response.json());",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8080/adder/current?num=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"adder",
+						"current"
+					],
+					"query": [
+						{
+							"key": "num",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdderController {
 
-    private AdderService adderService;
+    private final AdderService adderService;
 
     public AdderController(AdderService adderService) {
         this.adderService = adderService;
