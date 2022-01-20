@@ -16,8 +16,8 @@
 							"    return pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json;charset=UTF-8\")",
 							"});",
 							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"pm.test(\"Response time is less than 300ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
 							"});",
 							"",
 							"pm.test(\"Status code is 200\", function () {",
@@ -60,8 +60,8 @@
 							"    return pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json;charset=UTF-8\")",
 							"});",
 							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"pm.test(\"Response time is less than 300ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
 							"});",
 							"",
 							"pm.test(\"Status code is 200\", function () {",
@@ -110,8 +110,8 @@
 							"    return pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json;charset=UTF-8\")",
 							"});",
 							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"pm.test(\"Response time is less than 300ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
 							"});",
 							"",
 							"pm.test(\"Status code is 200\", function () {",
@@ -209,7 +209,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://0.0.0.0:8080/adder/current?num=badrequest",
+					"raw": "http://0.0.0.0:8080/adder?num=badrequest",
 					"protocol": "http",
 					"host": [
 						"0",
@@ -219,8 +219,7 @@
 					],
 					"port": "8080",
 					"path": [
-						"adder",
-						"current"
+						"adder"
 					],
 					"query": [
 						{
