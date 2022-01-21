@@ -43,5 +43,5 @@ jobs:
 
       - name: Run Postman tests on Spring Boot server
         run: |
-          newman run "src/main/resources/postman-collections/api.metadata.json"
-          newman run "src/main/resources/postman-collections/api.main.json"
+          newman run "src/test/postman/api.metadata.json"
+          newman run "src/test/postman/api.main.json"
