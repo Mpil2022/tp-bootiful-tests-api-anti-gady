@@ -31,6 +31,7 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
+*-lock.json
 *.lock
 /.angular/cache
 .sass-cache/
