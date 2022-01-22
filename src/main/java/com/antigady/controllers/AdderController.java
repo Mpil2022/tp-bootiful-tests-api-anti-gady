@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @CrossOrigin
-@RequestMapping(value = "/adder", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/adder", produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
 public class AdderController {
 
