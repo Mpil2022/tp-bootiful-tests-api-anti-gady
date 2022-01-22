@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {AdderService} from "../shared/services/adder-service";
 
 enum Error {
-  UnknownError = "Une erreur est survenue dans la récupération de la valeur"
+  UnknownError = "Une erreur est survenue lors de la connexion à l'API"
 }
 
 @Component({
@@ -15,14 +15,21 @@ export class HomeComponent {
    * Valeur actuelle enregistrée
    * @private
    */
-  private _value: string;
+  private _value: number;
 
   /**
-   * Constructeur principal
+   * Message d'erreur si échec de la récupération
+   */
+  private _error: string;
+
+
+  /**
+   * Constructeur principal pour l'accueil
    * @param _adderService Service Adder
    */
-  constructor(private _adderService:AdderService) {
-    this._value = "";
+  constructor(private _adderService: AdderService) {
+    this._value = 0;
+    this._error = "";
     this.getCurrent();
   }
 
@@ -30,14 +37,23 @@ export class HomeComponent {
    * Obtenir la valeur actuelle enregistrée
    */
   private getCurrent() {
-    this._adderService.getCurrent().subscribe((v) => {
-      this._value = v.toString();
-    }, () => {
-      this._value = Error.UnknownError;
-    })
+    this._adderService.getCurrent().subscribe({
+      next: (v) => this._value = v,
+      error: () => this._error = Error.UnknownError
+    });
   }
 
-  get value(): string {
+  /**
+   * Obtenir la valeur actuelle
+   */
+  get value(): number {
     return this._value;
+  }
+
+  /**
+   * Obtenir l'erreur actuelle
+   */
+  get error(): string {
+    return this._error;
   }
 }

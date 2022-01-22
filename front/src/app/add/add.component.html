@@ -1,1 +1,14 @@
-<p>add works!</p>
+<div class="margin center flex-column">
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input type="number" required matInput name="num" formControlName="num"/>
+    </mat-form-field>
+    <div class="margin center flex-row">
+      <button mat-raised-button color="primary" (click)="accumulateCurrent(form.get('num')?.value)">Valider</button>
+    </div>
+  </form>
+  <div *ngIf="error" class="margin">
+    <mat-error>{{error}}</mat-error>
+  </div>
+</div>

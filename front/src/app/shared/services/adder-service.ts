@@ -36,14 +36,6 @@ export class AdderService {
   }
 
   /**
-   * Ajouter une valeur sans effet de stockage
-   * @param val Valeur à ajouter
-   */
-  addCurrent(val: string): Observable<number> {
-    return this._http.post<number>(this._urls.backend.adder.replace(':param', val), {});
-  }
-
-  /**
    * Ajouter une valeur avec effet de stockage
    * @param val Valeur à ajouter
    */

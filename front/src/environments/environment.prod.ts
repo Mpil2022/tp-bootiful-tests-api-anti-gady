@@ -1,3 +1,15 @@
-export const environment = {
-  production: true
+export const environment: any = {
+  production: true,
+  backend: {
+    protocol: 'http',
+    host: '0.0.0.0',
+    port: '8080',
+    endpoints: {
+      adder: {
+        current: '/adder/current',
+        add: '/adder?num=:param',
+        accumulate: '/adder/current?num=:param',
+      },
+    },
+  },
 };

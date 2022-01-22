@@ -1,11 +1,12 @@
-<mat-toolbar>Bootiful Front</mat-toolbar>
-
 <div class="margin center flex-column">
 
   <h1>Valeur actuelle : {{value}}</h1>
 
   <div class="center flex-row">
-    <button mat-raised-button>Ajouter une valeur (sans stockage)</button>
-    <button mat-raised-button>Ajouter une valeur (avec stockage)</button>
+    <button mat-raised-button [routerLink]="['/bootiful/add']">Ajouter une valeur</button>
+  </div>
+
+  <div *ngIf="error" class="margin">
+    <mat-error>{{error}}</mat-error>
   </div>
 </div>
