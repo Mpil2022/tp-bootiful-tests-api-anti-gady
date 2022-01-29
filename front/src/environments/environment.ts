@@ -2,7 +2,7 @@ export const environment: any = {
   production: false,
   backend: {
     protocol: 'http',
-    host: '0.0.0.0',
+    host: 'localhost',
     port: '8080',
     endpoints: {
       adder: {
