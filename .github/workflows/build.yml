@@ -62,7 +62,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bootiful-api-antigady
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bootiful-api-antigady:latest
           context: .
           file: Dockerfile
 
