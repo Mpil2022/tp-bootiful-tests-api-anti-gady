@@ -2,10 +2,6 @@ package com.antigady.services;
 
 import org.springframework.stereotype.Service;
 
-/**
- * @author Richer Alexis
- * @version 1.0.0
- */
 
 @Service
 public class AdderService {

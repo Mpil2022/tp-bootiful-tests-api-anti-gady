@@ -1,9 +1,9 @@
 <div class="margin center flex-column">
 
-  <h1>Valeur actuelle : {{value}}</h1>
+  <div><h1>Valeur actuelle : </h1><div id="value">{{value}}</div></div>
 
   <div class="center flex-row">
-    <button mat-raised-button [routerLink]="['/bootiful/add']">Ajouter une valeur</button>
+    <button mat-raised-button [routerLink]="['/bootiful/add']" name="add">Ajouter une valeur</button>
   </div>
 
   <div *ngIf="error" class="margin">

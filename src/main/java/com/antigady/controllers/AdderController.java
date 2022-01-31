@@ -4,11 +4,6 @@ import com.antigady.services.AdderService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * @author Nada Madad et Raphaël Kimm
- * @version 1.0.0
- */
-
 @CrossOrigin
 @RequestMapping(value = "/adder", produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
